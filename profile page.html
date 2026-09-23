@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+</head>
+<body>
+    <button onclick="adminFeature()">Check Return</button>
+
+    <script>
+        let profile = {
+            name : "Zarah",
+            age : 25,
+            admin : true
+        } 
+
+       function adminFeature() {
+        let oldEnough = (profile.age >= 18 && profile.admin) ? "Access Granted" : "Access Denied";
+
+       console.log(oldEnough);
+       console.log("age" in profile );
+       delete profile.age;
+      }
+
+    </script>
+</body>
+</html>
