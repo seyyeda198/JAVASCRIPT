@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+</head>
+
+<body>
+
+    <button onclick="checkReturn()">Check Return</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        let order = {
+            itemName: "Laptop",
+            isDelivered: true,
+            daysSinceDelivery: 4
+        };
+
+        function checkReturn() {
+
+            let check = (order.isDelivered && order.daysSinceDelivery <= 7)
+                ? "Eligible for Return"
+                : "Return Period Expired";
+
+            document.getElementById("result").innerHTML =
+                "Return Status: " + check + "<br>" +
+                "Property exists: " + ("itemName" in order);
+
+            delete order.daysSinceDelivery;
+        }
+
+    </script>
+
+</body>
+</html>
