@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Dashboard</title>
+</head>
+<body>
+
+<script>
+
+    let students = [
+        {name: "Zarah", score: 70},
+        {name: "Rahul", score: 55},
+        {name: "Aleena", score: 95},
+        {name: "Arun", score: 40},
+        {name: "Diya", score: 75}
+    ];
+
+    document.write("<b>All Student Names</b><br>");
+
+    students.forEach(function(student) {
+        document.write(student.name + "<br>");
+    });
+
+    let studentsAbove60 = students
+        .filter(function(student) {
+            return student.score > 60;
+        })
+        .map(function(student) {
+            return student.name;
+        });
+
+    document.write("<br><b>Students Scoring More Than 60</b><br>");
+
+    studentsAbove60.forEach(function(name) {
+        document.write(name + "<br>");
+    });
+
+    let totalScore = students.reduce(function(total, student) {
+        return total + student.score;
+    }, 0);
+
+    document.write("<br><b>Total Score</b><br>");
+    document.write(totalScore + "<br>");
+
+    let allPassed = students.every(function(student) {
+        return student.score > 35;
+    });
+
+    document.write("<br><b>All Students Passed</b><br>");
+    document.write(allPassed + "<br>");
+
+    let highScorer = students.some(function(student) {
+        return student.score > 90;
+    });
+
+    document.write("<br><b>At Least One Student Scored More Than 90</b><br>");
+    document.write(highScorer + "<br>");
+
+    let sortedStudents = students.sort(function(a, b) {
+        return b.score - a.score;
+    });
+
+    document.write("<br><b>Students Sorted by Score</b><br>");
+
+    sortedStudents.forEach(function(student) {
+        document.write(student.name + " - " + student.score + "<br>");
+    });
+
+</script>
+
+</body>
+</html>
