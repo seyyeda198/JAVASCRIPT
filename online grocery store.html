@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Product List</title>
+</head>
+<body>
+
+<script>
+
+    let products = ["Apple", "strawberry", "Mango", "Guava"];
+
+    let prices = [70, 60, 30, 45];
+
+    let productList = [];
+
+    for (let i = 0; i < products.length; i++) {
+        productList.push(
+            "Product: " + products[i] + " - Price: " + prices[i]
+        );
+    }
+
+    document.write("<b>All Products</b><br>");
+
+    for (let i = 0; i < productList.length; i++) {
+        document.write(productList[i] + "<br>");
+    }
+
+    let filteredPrices = prices.filter(function(price) {
+        return price > 50;
+    });
+
+    document.write("<br><b>Products with Price Greater Than 50</b><br>");
+
+    filteredPrices.forEach(function(price) {
+        let index = prices.indexOf(price);
+
+        document.write(
+            "Product: " + products[index] + " - Price: " + price + "<br>"
+        );
+    });
+
+    products.push("Watermelon");
+    prices.push(80);
+
+    productList.push("Product: Watermelon - Price: 80");
+
+    document.write("<br><b>Updated Product List</b><br>");
+
+    for (let i = 0; i < productList.length; i++) {
+        document.write(productList[i] + "<br>");
+    }
+
+</script>
+
+</body>
+</html>
