@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Reminder</title>
+</head>
+
+<body>
+        <h2>Event Reminder</h2>
+
+    <script>
+
+        let input = prompt("Enter your past birthday (YYYY-MM-DD):");
+
+        let date = new Date(input);
+        let today = new Date();
+
+        let year = date.getFullYear();
+        let monthNumber = date.getMonth();
+        let day = date.getDate();
+
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        let month = months[monthNumber];
+
+        let years = today.getFullYear() - year;
+
+        let message = (years >= 1) ? "It has been more than a year since that date." : "It has been less than a year since that date.";
+
+        document.write("Year: " + year + "<br>");
+        document.write("Month: " + month + "<br>");
+        document.write("Day: " + day + "<br>");
+        document.write("Full years passed: " + years + "<br>");
+        document.write(message);
+
+    </script>
+
+</body>
+</html>
