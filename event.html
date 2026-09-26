@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Reminder</title>
+</head>
+
+<body>
+
+    <h2>Event Reminder</h2>
+
+    <h3 id="result"></h3>
+
+    <script>
+
+        function getBirthdayDetails() {
+
+            let birthday = prompt("Enter your birthday (YYYY-MM-DD):");
+
+            let date = new Date(birthday);
+
+            let year = date.getFullYear();
+
+            let months = [
+                "January", "February", "March", "April",
+                "May", "June", "July", "August",
+                "September", "October", "November", "December"
+            ];
+
+            let month = months[date.getMonth()];
+
+            let day = date.getDate();
+
+            let today = new Date();
+
+            let fullYears = today.getFullYear() - year;
+
+            if (
+                today.getMonth() < date.getMonth() ||
+                (today.getMonth() == date.getMonth() && today.getDate() < day)
+            ) {
+                fullYears--;
+            }
+
+            let message;
+
+            if (fullYears >= 1) {
+                message = "It has been more than a year since that date.";
+            } else {
+                message = "It has been less than a year since that date.";
+            }
+
+            document.getElementById("result").innerHTML =
+                "Year: " + year + "<br>" +
+                "Month: " + month + "<br>" +
+                "Day: " + day + "<br>" +
+                "Full years passed: " + fullYears + "<br>" +
+                message;
+        }
+
+        getBirthdayDetails();
+
+    </script>
+
+</body>
+</html>
