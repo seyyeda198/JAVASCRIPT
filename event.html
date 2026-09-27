@@ -7,59 +7,32 @@
 </head>
 
 <body>
-
-    <h2>Event Reminder</h2>
-
-    <h3 id="result"></h3>
+        <h2>Event Reminder</h2>
 
     <script>
 
-        function getBirthdayDetails() {
+        let input = prompt("Enter your past birthday (YYYY-MM-DD):");
 
-            let birthday = prompt("Enter your birthday (YYYY-MM-DD):");
+        let date = new Date(input);
+        let today = new Date();
 
-            let date = new Date(birthday);
+        let year = date.getFullYear();
+        let monthNumber = date.getMonth();
+        let day = date.getDate();
 
-            let year = date.getFullYear();
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-            let months = [
-                "January", "February", "March", "April",
-                "May", "June", "July", "August",
-                "September", "October", "November", "December"
-            ];
+        let month = months[monthNumber];
 
-            let month = months[date.getMonth()];
+        let years = today.getFullYear() - year;
 
-            let day = date.getDate();
+        let message = (years >= 1) ? "It has been more than a year since that date." : "It has been less than a year since that date.";
 
-            let today = new Date();
-
-            let fullYears = today.getFullYear() - year;
-
-            if (
-                today.getMonth() < date.getMonth() ||
-                (today.getMonth() == date.getMonth() && today.getDate() < day)
-            ) {
-                fullYears--;
-            }
-
-            let message;
-
-            if (fullYears >= 1) {
-                message = "It has been more than a year since that date.";
-            } else {
-                message = "It has been less than a year since that date.";
-            }
-
-            document.getElementById("result").innerHTML =
-                "Year: " + year + "<br>" +
-                "Month: " + month + "<br>" +
-                "Day: " + day + "<br>" +
-                "Full years passed: " + fullYears + "<br>" +
-                message;
-        }
-
-        getBirthdayDetails();
+        document.write("Year: " + year + "<br>");
+        document.write("Month: " + month + "<br>");
+        document.write("Day: " + day + "<br>");
+        document.write("Full years passed: " + years + "<br>");
+        document.write(message);
 
     </script>
 
