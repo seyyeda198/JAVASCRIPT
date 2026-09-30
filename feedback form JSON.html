@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback form JSON</title>
+</head>
+<body>
+    <script>
+
+let Data = '{"feedback":"Thank you for your excellent service. The website is very easy to use and helpful."}';
+
+try {
+
+    let feedbackData = JSON.parse(Data);
+
+    let feedback = feedbackData.feedback;
+
+    let checkFeedback = (feedback) => {
+        return /thank/i.test(feedback);
+    };
+
+    let result = checkFeedback(feedback);
+
+    console.log("Feedback: " + feedback);
+    console.log("Thank word present: " + result);
+
+    if (result) {
+        console.log("Positive feedback received");
+    } else {
+        console.log("Feedback noted");
+    }
+
+} catch (error) {
+
+    console.log("Error occurred");
+
+}
+
+</script>
+
+</body>
+</html>
