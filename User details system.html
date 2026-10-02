@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>User Details</h2>
+
+<script>
+
+class User {
+
+    constructor(name, age, email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    get username() {
+        return this.name;
+    }
+
+    get userage() {
+        return this.age;
+    }
+
+    set useremail(newEmail) {
+        if (/@/.test(newEmail)) {
+            this.email = newEmail;
+        }
+    }
+}
+
+let user1 = new User("Zarah", 22, "zarah@gmail.com");
+
+user1.useremail = "zarahgmail.com";
+let rejectedEmail = "zarahgmail.com";
+
+user1.useremail = "zarah123@gmail.com";
+let correctEmail = "zarah123@gmail.com";
+
+document.write("Name: " + user1.username + "<br>");
+document.write("Age: " + user1.userage + "<br>");
+document.write("Email: " + user1.email + "<br><br>");
+
+document.write("Correct email: " + correctEmail + "<br>");
+document.write("Incorrect email: " + rejectedEmail);
+
+
+</script>
+
+</body>
+</html>
