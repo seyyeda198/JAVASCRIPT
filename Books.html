@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<script>
+
+class Book {
+
+    constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    get bookTitle() {
+        return this.title;
+    }
+
+    get bookAuthor() {
+        return this.author;
+    }
+
+    get bookPrice() {
+        return this.price;
+    }
+
+    set bookPrice(newPrice) {
+        if (typeof newPrice === "number" && newPrice > 0) {
+            this.price = newPrice;
+            console.log("Updated Price: " + newPrice);
+        } else {
+            console.log("Invalid Price: " + newPrice);
+        }
+    }
+}
+
+let book1 = new Book("Harry Potter", "J.K. Rowling", 500);
+
+console.log("Title: " + book1.bookTitle);
+console.log("Author: " + book1.bookAuthor);
+console.log("Price: " + book1.bookPrice);
+
+book1.bookPrice = 700;
+
+book1.bookPrice = -100;
+
+
+</script>
+
+</body>
+</html>
