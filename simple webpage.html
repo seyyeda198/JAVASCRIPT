@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpage</title>
+</head>
+<body>
+    <form>
+
+<input type="text" id="userText">
+
+<button type="button" onclick="showText()">Submit</button>
+
+</form>
+
+<p id="result"
+onmouseover="this.style.color='green'"
+onmouseout="this.style.color='blue'">
+</p>
+
+<script>
+function showText() {
+
+let text = document.getElementById("userText").value;
+
+document.getElementById("result").innerHTML = text;
+
+document.getElementById("result").style.color = "blue";
+
+}
+
+</script>
+</body>
+</html>
